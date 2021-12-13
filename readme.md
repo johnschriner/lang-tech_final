@@ -100,7 +100,7 @@ fairseq-generate \
     --source-lang ady.g \
     --target-lang ady.p \
     --path checkpoints/checkpoint_best.pt \
-    --gen-subset test \
+    --gen-subset dev \
     --beam 8 \
     > predictions.txt
 ./wer.py predictions.txt
