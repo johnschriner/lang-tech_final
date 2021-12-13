@@ -92,3 +92,18 @@ fairseq-train \
     --no-epoch-checkpoints
  ```
 
+### Evaluation
+
+```
+fairseq-generate \
+    data-bin \
+    --source-lang ady.g \
+    --target-lang ady.p \
+    --path checkpoints/checkpoint_best.pt \
+    --gen-subset test \
+    --beam 8 \
+    > predictions.txt
+./wer.py predictions.txt
+```
+
+
