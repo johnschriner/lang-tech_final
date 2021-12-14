@@ -1,6 +1,6 @@
 The data is part of a set of scrapes and normalizations done by the WikiPron team.<br />
 The data for Adyghe contains 4,895 graphemes and their phonemes.<br />
-4.45% of the words from the scrape were filtered due to normalization, _______ <br />
+4.45% of the words from the scrape were filtered for normalization and consistent transcription; this was done by creating a phonelist that would be used to remove non-native segments (e.g. the velar fricative from _Bach_, pronounced /bɑːx/ while /x/ is absent in modern English and is excluded)[^1].<br />
 I will be using FairSeq to create an encoder-decoder LSTM for Adyge. <br />
 
 ### Split data
@@ -106,4 +106,4 @@ fairseq-generate \
 ./wer.py predictions.txt
 ```
 
-
+[^1]: Ashby, L. F. E., Bartley, T. M., Clematide, S., Del Signore, L., Gibson, C., Gorman, K., Lee-Sikka, Y., Makarov, P., Malanoski, A., Miller, S., Ortiz, O., Raff, R., Sengupta, A., Seo, B., Spektor, Y., & Yan, W. (2021). Results of the second sigmorphon shared task on multilingual grapheme-to-phoneme conversion. _Proceedings of the 18th SIGMORPHON Workshop on Computational Research in Phonetics, Phonology, and Morphology_, 115–125. https://doi.org/10.18653/v1/2021.sigmorphon-1.13
