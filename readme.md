@@ -72,24 +72,23 @@ fairseq-train \
     data-bin \
     --source-lang ady.g \
     --target-lang ady.p \
-    --seed 21 \
-    --arch lstm \
     --encoder-bidirectional \
-    --dropout .2 \
-    --encoder-embed-dim 128 \
-    --decoder-embed-dim 128 \
-    --decoder-out-embed-dim 128 \
-    --encoder-hidden-size 512 \
-    --decoder-hidden-size 512 \
-    --share-decoder-input-output-embed \
-    --criterion label_smoothed_cross_entropy \
+    --seed 230 \
+    --arch lstm \
+    --dropout 0.2 \
+    --lr .001 \
+    --max-update 800\
+    --no-epoch-checkpoints \
+    --batch-size 50 \
+    --clip-norm 1 \
     --label-smoothing .1 \
     --optimizer adam \
-    --lr .001 \
     --clip-norm 1 \
-    --batch-size 50 \
-    --max-update 800 \
-    --no-epoch-checkpoints
+    --criterion label_smoothed_cross_entropy\
+    --encoder-embed-dim 512 \
+    --decoder-embed-dim 512 \
+    --encoder-layers 4 \
+    --decoder-layers 4 \
  ```
 
 ### Evaluation
@@ -100,10 +99,70 @@ fairseq-generate \
     --source-lang ady.g \
     --target-lang ady.p \
     --path checkpoints/checkpoint_best.pt \
-    --gen-subset dev \
+    --gen-subset valid \
     --beam 8 \
     > predictions.txt
 ./wer.py predictions.txt
 ```
+We will tweak `dev` for model selection and the best model will be used on `test` data. <br />
+
+Parameters above on the `dev` data:<br />
+`WER:	29.80`<br />
+halving the hidden layers from 4 to 2 and halving their size from 512 to 256: <br />
+`WER:    27.55`<br />
+Continuing and doubling the batch size from 50 to 100:<br />
+`WER:	25.71`<br />
+<br />
+The combined parameters above on the `test` data:<br />
+`WER:	25.36`<br />
+Continuing and increasing the batch size from 100 to 500:<br />
+```
+fairseq-train \
+    data-bin \
+    --source-lang ady.g \
+    --target-lang ady.p \
+    --encoder-bidirectional \
+    --seed 230 \
+    --arch lstm \
+    --dropout 0.2 \
+    --lr .001 \
+    --max-update 800\
+    --no-epoch-checkpoints \
+    --batch-size 500 \
+    --clip-norm 1 \
+    --label-smoothing .1 \
+    --optimizer adam \
+    --clip-norm 1 \
+    --criterion label_smoothed_cross_entropy\
+    --encoder-embed-dim 256 \
+    --decoder-embed-dim 256 \
+    --encoder-layers 2 \
+    --decoder-layers 2 \
+```
+This resulted in a longer processing time, more epochs, but a better lower loss value: <br />
+`WER:	24.34` <br />
+
+Choosing this model, we can now run it on the `test` data: <br />
+`WER:	26.73`<br />
+
+### A close examination of hypotheses and phone errors
+
+|Target |Hypothesis | Phone error notes |
+|------|------------|-----------|
+|z ə p a ʁʷ a t ħ a ʑ ə n | z ə p a ʁʷ ə t ħ a ʑ ə n | ? |
+|x ə ʁ a χʷ ə n a n ə qʷ ə| ə ʁ a χʷ ə n a n ə qʷ| The source is хыгъэхъунэныкъу|
+|m a r aː kʷʼ aː t͡sʼ a|m a r aː kʷʼ aː p t͡sʼ a| successfully predicted long vowels throughout the experiment|
+|ħ aː l ʐʷ a ʁʷ aː n|ħ aː l ʒʷ a ʁʷ aː n| The source is хьалжъогъуан - Only instance[^2] of /ʐʷ/ in the test data, and 5 instances of /ʒʷ/|
+|b ʁ a kʲʼ a ħ|b ʁ a t͡ʃʼ a ħ|The source is бгъэкӏэхь - there are 14 instances of /kʲʼ/ and 39 instances of /t͡ʃʼ/|
+|ʂʷ a t a j ħ a t a j t͡ʃ|ʃʷ a t a j ħ a t a j t͡ʃʼ|Several occurrences missing or added ejective to the voiceless postalveolar affricate|
+|n aː ʂʷ χʷ a|n aː ʃʷ χʷ a|The source is нашъухъо - there are 23 instances of /ʂʷ/ and 76 of /ʃʷ/|
+|kʷ ə ɬ a ʃʷ|kʷ ə ɬ a ʂʷ|the opposite of the above and equally incorrect.|
+
+
+
+
+
+
 
 [^1]: Ashby, L. F. E., Bartley, T. M., Clematide, S., Del Signore, L., Gibson, C., Gorman, K., Lee-Sikka, Y., Makarov, P., Malanoski, A., Miller, S., Ortiz, O., Raff, R., Sengupta, A., Seo, B., Spektor, Y., & Yan, W. (2021). Results of the second sigmorphon shared task on multilingual grapheme-to-phoneme conversion. _Proceedings of the 18th SIGMORPHON Workshop on Computational Research in Phonetics, Phonology, and Morphology_, 115–125. https://doi.org/10.18653/v1/2021.sigmorphon-1.13
+[^2]: by 'instance' I mean: occured in the Target field; no other fields were counted.
