@@ -150,13 +150,35 @@ Choosing this model, we can now run it on the `test` data: <br />
 |Target |Hypothesis | Phone error notes |
 |------|------------|-----------|
 |z ə p a ʁʷ a t ħ a ʑ ə n | z ə p a ʁʷ ə t ħ a ʑ ə n | ? |
-|x ə ʁ a χʷ ə n a n ə qʷ ə| ə ʁ a χʷ ə n a n ə qʷ| The source is хыгъэхъунэныкъу|
+|x ə ʁ a χʷ ə n a n ə qʷ ə| ə ʁ a χʷ ə n a n ə qʷ| The source is [хыгъэхъунэныкъу]|
 |m a r aː kʷʼ aː t͡sʼ a|m a r aː kʷʼ aː p t͡sʼ a| successfully predicted long vowels throughout the experiment|
-|ħ aː l ʐʷ a ʁʷ aː n|ħ aː l ʒʷ a ʁʷ aː n| The source is хьалжъогъуан - Only instance[^2] of /ʐʷ/ in the test data, and 5 instances of /ʒʷ/|
+|ħ aː l ʐʷ a ʁʷ aː n|ħ aː l ʒʷ a ʁʷ aː n| The source is [хьалжъогъуан] - Only instance[^2] of /ʐʷ/ in the test data, and 5 instances of /ʒʷ/|
 |b ʁ a kʲʼ a ħ|b ʁ a t͡ʃʼ a ħ|The source is бгъэкӏэхь - there are 14 instances of /kʲʼ/ and 39 instances of /t͡ʃʼ/|
 |ʂʷ a t a j ħ a t a j t͡ʃ|ʃʷ a t a j ħ a t a j t͡ʃʼ|Several occurrences missing or added ejective to the voiceless postalveolar affricate. /t͡ʃʼ/ occurs quite often so correcting this error would vastly improve the WER.|
-|n aː ʂʷ χʷ a|n aː ʃʷ χʷ a|The source is нашъухъо - there are 23 instances of /ʂʷ/ and 76 of /ʃʷ/|
+|n aː ʂʷ χʷ a|n aː ʃʷ χʷ a|The source is [нашъухъо] - /ʂʷ/ and /ʃʷ/ is numerous in the data|
 |kʷ ə ɬ a ʃʷ|kʷ ə ɬ a ʂʷ|The opposite of the example directly above - these sounds are phonetically very similar|
+|ʃʷʼ a ʃʷʼ χʷ ə n ʁ a|ʃʷʼ a ʂ χʷ ə n ə ʁ a| /ʂ/ is often used to represent [шъ] |
+|ʂʷ a t a j ħ a t a j t͡ʃ|ʃʷ a t a j ħ a t a j t͡ʃʼ|[шъотехьэтекӏ] - look into /шъ/ and /ш/ in Adyghe|
+|ʃʷʼ aː m pʼ a|ʃʷ aː m pʼ a| Another instance of the unpredictability of /шъ/|
+|ʔ aː q ə l |aː q ə l| The target contains a glottal stop that wasn't predicted.  Training data had the same root in [акъылыгъу] that does _not_ have the glottal stop |
+|ʔ aː ʃ a|ʔ aː ʃ a| Correctly predicted a glottal stop when at the beginning on the word.  This is the only 1 instance (of 8 where the word begins with [аш]) in all of the WikiPron data and the LSTM correctly predicted a glottal stop to precede the long /a/|
+|w ə ɡʲ|w ə ɡʲ| We see that [y] is represented phonetically as /wə/| 
+|w f a n| w ə f a n |The grapheme [уфэн] in this case does _not_ have the schwa /ə/|
+|n a ʂʷ ə|n a ʃʷ| The grapheme is [нэшъу]|
+|z aː w l a|z aː w ɮ a|The graph [л] is incorrectly hypothesized to be /ɮ/|
+|ʔ aː ɮ ə| ʔ aː l ə| The grapheme [ӏалы] again contains [л] and incorrectly predicts /l/|
+|p ə l|p ə ɮ| Another occurence|
+|ɬ a p s|ɬ a p s|From the source grapheme [лъэпс] the [л] is correctly predicted as /ɬ/|
+
+
+
+<br />
+The challenge we find is:<br />
+A single grapheme can be mapped to several different phonemes.<br />
+There has been some discussion of how the Cyrillic script cannot properly be used to represent the consonantal inventory of the language.<br />
+Here we find evidence through our experiments that this may be the case.<br />
+
+
 
 
 
