@@ -155,7 +155,7 @@ Choosing this model, we can now run it on the `test` data: <br />
 |ħ aː l ʐʷ a ʁʷ aː n|ħ aː l ʒʷ a ʁʷ aː n| The source is [хьалжъогъуан] - Only instance[^2] of /ʐʷ/ in the test data, and 5 instances of /ʒʷ/|
 |b ʁ a kʲʼ a ħ|b ʁ a t͡ʃʼ a ħ|The source is бгъэкӏэхь - there are 14 instances of /kʲʼ/ and 39 instances of /t͡ʃʼ/|
 |ʂʷ a t a j ħ a t a j t͡ʃ|ʃʷ a t a j ħ a t a j t͡ʃʼ|Several occurrences missing or added ejective to the voiceless postalveolar affricate. /t͡ʃʼ/ occurs quite often so correcting this error would vastly improve the WER.|
-|n aː ʂʷ χʷ a|n aː ʃʷ χʷ a|The source is [нашъухъо] - /ʂʷ/ and /ʃʷ/ is numerous in the data|
+|n aː ʂʷ χʷ a|n aː ʃʷ χʷ a|The source is [нашъухъо] - /ʂʷ/ and /ʃʷ/ are numerous in the data|
 |kʷ ə ɬ a ʃʷ|kʷ ə ɬ a ʂʷ|The opposite of the example directly above - these sounds are phonetically very similar|
 |ʃʷʼ a ʃʷʼ χʷ ə n ʁ a|ʃʷʼ a ʂ χʷ ə n ə ʁ a| /ʂ/ is often used to represent [шъ] |
 |ʂʷ a t a j ħ a t a j t͡ʃ|ʃʷ a t a j ħ a t a j t͡ʃʼ|[шъотехьэтекӏ] - look into /шъ/ and /ш/ in Adyghe|
