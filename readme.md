@@ -169,8 +169,10 @@ Choosing this model, we can now run it on the `test` data: <br />
 |ʔ aː ɮ ə| ʔ aː l ə| The grapheme [ӏалы] again contains [л] and incorrectly predicts /l/|
 |p ə l|p ə ɮ| Another occurence|
 |ɬ a p s|ɬ a p s|From the source grapheme [лъэпс] the [л] is correctly predicted as /ɬ/|
+|ʁ a f a b aː pʼ a| ʁ a f a b aː pʼ a|The grapheme is [гъэфэбапӏэ], the [г] here pronounced as /ʁ/ whereas in Russian, for example the graph [г] is pronounced as /g/ and sometimes at the end of words as /k/ or /v/.  In the data, [г] is represented as /ʁ/, /ʁʷ/, /ɡʷ/, or /ɣ/|
 
 
+/ы/ is correctly mapped to the schwa /ə/ throughout the experiment.<br />
 
 <br />
 The challenge we find is:<br />
