@@ -113,8 +113,6 @@ halving the hidden layers from 4 to 2 and halving their size from 512 to 256: <b
 Continuing and doubling the batch size from 50 to 100:<br />
 `WER:	25.71`<br />
 <br />
-The combined parameters above on the `test` data:<br />
-`WER:	25.36`<br />
 Continuing and increasing the batch size from 100 to 500:<br />
 ```
 fairseq-train \
