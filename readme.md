@@ -164,7 +164,7 @@ Choosing this model, we can now run it on the `test` data: <br />
 |Target |Hypothesis | Phone error notes |
 |------|------------|-----------|
 |ʔ aː q ə l |aː q ə l| The target contains a glottal stop that wasn't predicted.  Training data had the same root in [акъылыгъу] that does _not_ have the glottal stop |
-|ʔ aː ʃ a|ʔ aː ʃ a| Correctly predicted a glottal stop when at the beginning on the word.  This is the only 1 instance (of 8 where the word begins with [аш]) in all of the WikiPron data and the LSTM correctly predicted a glottal stop to precede the long /a/|
+|ʔ aː ʃ a|ʔ aː ʃ a| Correctly predicted a glottal stop when at the beginning on the word.  This is the only 1 instance (of 8 where the word begins with [аш]) in all of the WikiPron data and the LSTM correctly predicted a glottal stop to precede the long /a/ word-initially|
 
 ### [л] and [г] variation
 |Target |Hypothesis | Phone error notes |
