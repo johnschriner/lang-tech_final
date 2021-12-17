@@ -147,8 +147,8 @@ Choosing this model, we can now run it on the `test` data: <br />
 |Target |Hypothesis | Phone error notes |
 |------|------------|-----------|
 |ħ aː l ʐʷ a ʁʷ aː n|ħ aː l ʒʷ a ʁʷ aː n| The source is [хьалжъогъуан] - Only instance[^2] of /ʐʷ/ in the test data, and 5 instances of /ʒʷ/|
-|b ʁ a kʲʼ a ħ|b ʁ a t͡ʃʼ a ħ|The source is бгъэкӏэхь - there are 14 instances of /kʲʼ/ and 39 instances of /t͡ʃʼ/|
-|ʂʷ a t a j ħ a t a j t͡ʃ|ʃʷ a t a j ħ a t a j t͡ʃʼ|Several occurrences missing or added ejective to the voiceless postalveolar affricate. /t͡ʃʼ/ occurs quite often so correcting this error would vastly improve the WER.|
+|b ʁ a kʲʼ a ħ|b ʁ a t͡ʃʼ a ħ|The source is бгъэкӏэхь - there are 14 instances of /kʲʼ/ and 39 instances of /t͡ʃʼ/. /t͡ʃʼ/ occurs quite often so correcting this error would vastly improve the WER.|
+|ʂʷ a t a j ħ a t a j t͡ʃ|ʃʷ a t a j ħ a t a j t͡ʃʼ|Several occurrences missing or added ejective to the voiceless postalveolar affricate|
 
 ### Variable phones for [шъ]
 |Target |Hypothesis | Phone error notes |
