@@ -182,7 +182,7 @@ Choosing this model, we can now run it on the `test` data: <br />
 |w ə ɡʲ|w ə ɡʲ| We see that [y] is represented phonetically as /wə/| 
 |w f a n| w ə f a n |The grapheme [уфэн] in this case does _not_ have the schwa /ə/|
 |z ə p a ʁʷ a t ħ a ʑ ə n | z ə p a ʁʷ ə t ħ a ʑ ə n | Incorrectly hypothesized a schwa /ə/|
-|x ə ʁ a χʷ ə n a n ə qʷ ə| ə ʁ a χʷ ə n a n ə qʷ| Word-final schwa omitted in hyopthesis.  The source grapheme is [хыгъэхъунэныкъу].  _n.b._ [ы] is correctly mapped to the schwa /ə/ throughout the experiment.<br />|
+|x ə ʁ a χʷ ə n a n ə qʷ ə| ə ʁ a χʷ ə n a n ə qʷ| Word-final schwa omitted in hypothesis.  The source grapheme is [хыгъэхъунэныкъу].  _n.b._ [ы] is correctly mapped to the schwa /ə/ throughout the experiment.<br />|
 
 <br />
 The challenge we find is:<br />
@@ -194,4 +194,4 @@ Here we find evidence through our experiments that this may be the case.<br />
 
 
 [^1]: Ashby, L. F. E., Bartley, T. M., Clematide, S., Del Signore, L., Gibson, C., Gorman, K., Lee-Sikka, Y., Makarov, P., Malanoski, A., Miller, S., Ortiz, O., Raff, R., Sengupta, A., Seo, B., Spektor, Y., & Yan, W. (2021). Results of the second sigmorphon shared task on multilingual grapheme-to-phoneme conversion. _Proceedings of the 18th SIGMORPHON Workshop on Computational Research in Phonetics, Phonology, and Morphology_, 115–125. https://doi.org/10.18653/v1/2021.sigmorphon-1.13
-[^2]: by 'instance' I mean: occured in the Target field; no other fields were counted.
+[^2]: by 'instance' I mean: occurred in the Target field; no other fields were counted.
