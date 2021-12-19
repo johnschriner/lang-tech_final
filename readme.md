@@ -190,8 +190,48 @@ A single grapheme can be mapped to several different phonemes.<br />
 There has been some discussion of how the Cyrillic script cannot properly be used to represent the consonantal inventory of the language.<br />
 Here we find evidence through our experiments that this may be the case.<br />
 
+## Transformer
+Trying now the state-of-the-art Transformer grapheme to phoneme conversion model using the Moses tokenizer (otherwise _vanilla_ in its parameters):
+```
+fairseq-train data-bin 
+    --source-lang ady.g 
+    --target-lang ady.p     
+    --clip-norm 0.1 
+    --dropout 0.2 
+    --max-tokens 2048     
+    --optimizer adam --adam-betas '(0.9, 0.98)' 
+    --clip-norm 0.0     
+    --lr 5e-4 
+    --lr-scheduler inverse_sqrt     
+    --criterion label_smoothed_cross_entropy     
+    --update-freq 4     
+    --log-format json     
+    --keep-interval-updates 100 
+    --save-interval-updates 3000  
+    --log-interval 50     
+    --arch transformer 
+    --save-dir checkpoints/transformer 
+    --no-epoch-checkpoints  
+    --tokenizer moses
+```
 
+```
+fairseq-generate \
+    data-bin \
+    --source-lang ady.g \
+    --target-lang ady.p \
+    --path checkpoints/transformer/checkpoint_best.pt \
+    --gen-subset test \
+    --beam 8 \
+    > predictions.txt
+```
+```
+WER:	85.71
+```
+The high WER is due in large part to not predicting the correct phoneme due to ambiguity and incorrect mapping. <br />
 
+As mentioned in the paper, moving beyond the vanilla parameters for Transformer would likely provide results that could equal or overtake the LSTM results above.  The authors of the Transformer paper had significant processing time and resources: their computation ran on 8 GPUs for 3.5 days.
+<br />
 
 [^1]: Ashby, L. F. E., Bartley, T. M., Clematide, S., Del Signore, L., Gibson, C., Gorman, K., Lee-Sikka, Y., Makarov, P., Malanoski, A., Miller, S., Ortiz, O., Raff, R., Sengupta, A., Seo, B., Spektor, Y., & Yan, W. (2021). Results of the second sigmorphon shared task on multilingual grapheme-to-phoneme conversion. _Proceedings of the 18th SIGMORPHON Workshop on Computational Research in Phonetics, Phonology, and Morphology_, 115–125. https://doi.org/10.18653/v1/2021.sigmorphon-1.13
 [^2]: by 'instance' I mean: occurred in the Target field; no other fields were counted.
